@@ -45,9 +45,11 @@ captures/
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
 .idea/dictionaries
-.idea/libraries
+.idea/librarieshn
+
+# ingore all hprof files
+*.hprof
 # Android Studio 3 in .gitignore file.
-java_pid1385.hprof.gitignore
 .idea/caches
 .idea/modules.xml
 # Comment next line if keeping position of elements in Navigation Editor is relevant for you
