@@ -4,6 +4,8 @@ import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import Core.BaseClasses.OperationModes.EctoOpMode;
 
@@ -11,43 +13,44 @@ import Core.BaseClasses.OperationModes.EctoOpMode;
 @TeleOp(name = "EncoderTester", group = "Testing")
 public class EncoderTester extends EctoOpMode {
 
-    MotorEx fL, fR, bL, bR;
+    DcMotor fL, fR, bL, bR;
 
 
 
     @Override
     public void initRobotClasses() {
-        fL = new MotorEx(hardwareMap, "frontLeftMotor");
-        fR = new MotorEx(hardwareMap, "frontRightMotor");
-        bL = new MotorEx(hardwareMap, "backLeftMotor");
-        bR = new MotorEx(hardwareMap, "backRightMotor");
+        fL = hardwareMap.dcMotor.get("frontLeftMotor");
+        fR = hardwareMap.dcMotor.get("frontRightMotor");
+        bL = hardwareMap.dcMotor.get("backLeftMotor");
+        bR = hardwareMap.dcMotor.get("backRightMotor");
+
 
 
     }
 
     @Override
     public void initRobot() {
-        fL.setRunMode(MotorEx.RunMode.PositionControl);
-        fR.setRunMode(MotorEx.RunMode.PositionControl);
-        bL.setRunMode(MotorEx.RunMode.PositionControl);
-        bR.setRunMode(MotorEx.RunMode.PositionControl);
+        fL.setDirection(DcMotor.Direction.REVERSE);
+        bL.setDirection(DcMotor.Direction.REVERSE);
+        fR.setDirection(DcMotor.Direction.FORWARD);
+        bR.setDirection(DcMotor.Direction.FORWARD);
 
 
     }
 
     @Override
     public void startRobot() {
-
     }
 
     @Override
     public void updateRobot(Double timeStep) {
 
-
-        telemetry.addData("Front Left", fL.getCurrentPosition());
         telemetry.addData("Front Right", fR.getCurrentPosition());
-        telemetry.addData("Back Left", bL.getCurrentPosition());
-        telemetry.addData("Back Right", bR.getCurrentPosition());
+        telemetry.addData("Back Left ", bL.getCurrentPosition());
+        telemetry.addData("Back Right ", bR.getCurrentPosition());
+        telemetry.addData("Back Right ", fL.getCurrentPosition());
+
+
         telemetry.update();
 
 

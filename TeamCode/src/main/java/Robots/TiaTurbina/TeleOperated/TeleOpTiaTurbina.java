@@ -70,9 +70,9 @@ public class TeleOpTiaTurbina extends EctoOpMode {
                 && driverGamepad.getButton(Configuration.Buttons.rightBumper)) {
 
             chassis.setChassisMovement(
-                    driverGamepad.getLeftX() * -0.325,
-                    driverGamepad.getLeftY() * -0.325,
-                    driverGamepad.getRightX() * -0.325,
+                    driverGamepad.getLeftX() * 0.325,
+                    driverGamepad.getLeftY() * 0.325,
+                    driverGamepad.getRightX() * 0.325,
                     Mecanum.orientation.field);
 
         } else if (driverGamepad.getLeftY() != 0
@@ -83,9 +83,9 @@ public class TeleOpTiaTurbina extends EctoOpMode {
                 && driverGamepad.getButton(Configuration.Buttons.leftBumper)) {
 
             chassis.setChassisMovement(
-                    driverGamepad.getLeftX() * -0.5,
-                    driverGamepad.getLeftY() * -0.5,
-                    driverGamepad.getRightX() * -0.5,
+                    driverGamepad.getLeftX() * 0.5,
+                    driverGamepad.getLeftY() * 0.5,
+                    driverGamepad.getRightX() * 0.5,
                     Mecanum.orientation.field);
 
         } else if (driverGamepad.getLeftY() != 0
@@ -93,9 +93,9 @@ public class TeleOpTiaTurbina extends EctoOpMode {
                 || driverGamepad.getRightX() != 0) {
 
             chassis.setChassisMovement(
-                    driverGamepad.getLeftX() * -1,
-                    driverGamepad.getLeftY() * -1,
-                    driverGamepad.getRightX() * -1,
+                    driverGamepad.getLeftX() * 1,
+                    driverGamepad.getLeftY() * 1,
+                    driverGamepad.getRightX() * 1,
                     Mecanum.orientation.field);
 
         } else {
