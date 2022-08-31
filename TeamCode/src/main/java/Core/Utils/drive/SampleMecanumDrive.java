@@ -49,6 +49,9 @@ public class SampleMecanumDrive extends MecanumDrive {
     public static double VY_WEIGHT = 1;
     public static double OMEGA_WEIGHT = 1;
 
+    double v , v1 ,v2 ,v3;
+
+
     private TrajectorySequenceRunner trajectorySequenceRunner;
 
     private static final TrajectoryVelocityConstraint VEL_CONSTRAINT = getVelocityConstraint(DriveConstants.MAX_VEL, DriveConstants.MAX_ANG_VEL, DriveConstants.TRACK_WIDTH);
@@ -253,7 +256,9 @@ public class SampleMecanumDrive extends MecanumDrive {
 
         setDrivePower(vel);
     }
-
+    public List<Double> getWrittenVoltages(){
+        return Arrays.asList(v, v1, v2, v3);
+    }
     @NonNull
     @Override
     public List<Double> getWheelPositions() {
@@ -279,6 +284,12 @@ public class SampleMecanumDrive extends MecanumDrive {
         leftRear.setPower(v1);
         rightRear.setPower(v2);
         rightFront.setPower(v3);
+
+        this.v = v;
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
+
     }
 
     @Override
