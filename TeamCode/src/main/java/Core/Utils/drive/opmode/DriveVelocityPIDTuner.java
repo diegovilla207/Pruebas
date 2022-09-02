@@ -123,9 +123,14 @@ public class DriveVelocityPIDTuner extends LinearOpMode {
                     drive.setDrivePower(new Pose2d(targetPower, 0, 0));
 
                     List<Double> velocities = drive.getWheelVelocities();
-
+                    List <Double> voltages = drive.getWrittenVoltages();
                     // update telemetry
                     telemetry.addData("targetVelocity", motionState.getV());
+                    for(int i = 0; i < voltages.size(); i++) {
+                        telemetry.addData("Motor" + i + " ", voltages.get(i));
+                    }
+
+
                     for (int i = 0; i < velocities.size(); i++) {
                         telemetry.addData("measuredVelocity" + i, velocities.get(i));
                         telemetry.addData(
